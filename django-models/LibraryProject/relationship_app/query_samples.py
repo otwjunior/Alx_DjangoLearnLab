@@ -8,7 +8,7 @@ from relationship_app.models import Author,Book,Library, Librarian
 
 def query_books_by_author(author_name):
     try:
-        autho = Author.objects.get(name=author_name)
+        author = Author.objects.get(name=author_name)
         books = Book.objects.filter(author=author)
         for book in books:
             print(book.title)
