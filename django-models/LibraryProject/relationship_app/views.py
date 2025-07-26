@@ -9,7 +9,7 @@ def book_list_view(request):
 #class based view
 class LibraryDetailView(DetailView):
     model = Library
-    template_name= "library_detail.html"
+    template_name= "relationship_app/library_detail.html"
     context_object_name = 'library'
 
     # tell Django to use name field for the library
