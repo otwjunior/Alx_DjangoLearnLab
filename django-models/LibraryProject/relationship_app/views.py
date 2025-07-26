@@ -44,3 +44,5 @@ class RegisterView(View):
 @login_required
 def home_view(request):
     return render (request, 'relationship_app/home.html')
+
+register = RegisterViews.as_view()

@@ -7,7 +7,7 @@ urlpatterns = [
    
    path('login/', CustomLoginView.as_view(template_name='relationship_app/login.html'), name = 'login'),
    path('logout/', CustomLogoutView.as_view(template_name='relationship_app/logout.html'), name ='logout'),
-   path('register/', views.RegisterView.as_view(), name = 'register'),
+   path('register/', views.register, name = 'register'),
    path('', home_view, name='home'),
 
 ]
