@@ -1,13 +1,18 @@
 from django.urls import path
 from . import views
+
 #from .views import HelloVi
 urlpatterns = [
-   path('books/', list_books, name= 'book-list'),
-   path('listbooks/<str:name>/', LibraryDetailView.as_view(), name = 'available-books' ),
+   path('books/', views.list_books, name= 'book-list'),
+   path('listbooks/<str:name>/', views.LibraryDetailView.as_view(), name = 'available-books' ),
    
-   path('login/', CustomLoginView.as_view(template_name='relationship_app/login.html'), name = 'login'),
-   path('logout/', CustomLogoutView.as_view(template_name='relationship_app/logout.html'), name ='logout'),
+   path('login/', views.CustomLoginView.as_view(template_name='relationship_app/login.html'), name = 'login'),
+   path('logout/', views.CustomLogoutView.as_view(template_name='relationship_app/logout.html'), name ='logout'),
    path('register/', views.register, name = 'register'),
-   path('', home_view, name='home'),
-
+   path('', views.home_view, name='home'),
+   
+   # user path now
+   path('admin-role/', views.admin_view, name='admin-view'),
+   path('librarian-role/', views.librarian_view, name='librarian-view'),
+   path('member-role/', views.member_view, name='member-view'),   
 ]
