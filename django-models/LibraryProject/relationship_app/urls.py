@@ -14,5 +14,11 @@ urlpatterns = [
    # user path now
    path('admin-role/', views.admin_view, name='admin-view'),
    path('librarian-role/', views.librarian_view, name='librarian-view'),
-   path('member-role/', views.member_view, name='member-view'),   
+   path('member-role/', views.member_view, name='member-view'),
+
+   #  book operations urls 
+   path('books/add/', views.add_book, name='add-book'),
+    path('books/edit/<int:pk>/', views.edit_book, name='edit-book'),
+    path('books/delete/<int:pk>/', views.delete_book, name='delete-book')
+     
 ]
