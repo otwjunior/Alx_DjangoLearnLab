@@ -18,7 +18,7 @@ urlpatterns = [
 
    #  book operations urls 
    path('books/add/', views.add_book, name='add-book'),
-    path('books/edit/<int:pk>/', views.edit_book, name='edit-book'),
+    path('books/update/<int:pk>/', views.update_book, name='update-book'),
     path('books/delete/<int:pk>/', views.delete_book, name='delete-book')
      
 ]
