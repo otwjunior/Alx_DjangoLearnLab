@@ -17,8 +17,8 @@ urlpatterns = [
    path('member-role/', views.member_view, name='member-view'),
 
    #  book operations urls 
-   path('books/add/', views.add_book, name='add-book'),
-    path('books/update/<int:pk>/', views.update_book, name='update-book'),
+   path('books/add_book/', views.add_book, name='add-book'),
+    path('books/edit_boook/<int:pk>/', views.update_book, name='update-book'),
     path('books/delete/<int:pk>/', views.delete_book, name='delete-book')
      
 ]
