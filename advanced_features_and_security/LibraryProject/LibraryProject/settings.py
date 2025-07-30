@@ -130,7 +130,7 @@ LOGOUT_REDIRECT_URL = 'login'
 LOGIN_URL = 'login'
 
 #usecustomized user model
-AUTH_USER_MODEL = 'relationship_app.CustomUser' 
+AUTH_USER_MODEL = 'bookshelf.CustomUser' 
 
 #custom authentication backend
 AUTHENTICATION_BACKENDS = [
