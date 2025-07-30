@@ -1,5 +1,6 @@
 from django.contrib import admin
 from .models import Book
+from .models import CustomUser, CustomUserManager
 # Register your models here.
 class BookAdmin(admin.ModelAdmin):
     #define what field we want to display in a list
@@ -11,3 +12,4 @@ class BookAdmin(admin.ModelAdmin):
 
 #register custom admin class
 admin.site.register(Book, BookAdmin)
+admin.site.register(CustomUser,CustomUserManager)
