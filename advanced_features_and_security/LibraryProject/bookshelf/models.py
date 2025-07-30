@@ -8,7 +8,7 @@ class  Book(models.Model):
     publication_year = models.IntegerField()
 
 stomizing user authentication
-class UserManager(BaseUserManager):  #manages the db queries for user model
+class CustomUserManager(BaseUserManager):  #manages the db queries for user model
     def create_user(self, username, password=None, date_of_birth=None, profile_photo=None):
         """ create a user with  username, password, dob and profile photo"""
         if not  username:
@@ -34,6 +34,6 @@ class CustomUser(AbstractUser):
 
     REQUIRED_FIELDS = ['password', 'date_of_birth', 'profile_photo']
     
-    objects = UserManager()
+    objects = CustomUserManager()
 
 
