@@ -135,5 +135,5 @@ AUTH_USER_MODEL = 'bookshelf.CustomUser'
 #custom authentication backend
 AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend', #default backend for the  admin and other users
-    'accounts.backends.EmailBackend' # our custom backend
+    #'accounts.backends.EmailBackend' # our custom backend
 ]

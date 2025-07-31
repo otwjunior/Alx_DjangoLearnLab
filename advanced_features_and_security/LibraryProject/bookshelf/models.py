@@ -7,7 +7,16 @@ class  Book(models.Model):
     author = models.CharField(max_length=100) 
     publication_year = models.IntegerField()
 
-stomizing user authentication
+    #add permmision
+    class Meta:
+        permissions = [
+            ('can_view', 'can view book'),
+            ('can_create', 'can create book'),
+            ('can_delete', 'can delete book'),
+            ('can_edit', 'can edit book'),
+        ]
+
+#customizing user authentication
 class CustomUserManager(BaseUserManager):  #manages the db queries for user model
     def create_user(self, username, password=None, date_of_birth=None, profile_photo=None):
         """ create a user with  username, password, dob and profile photo"""
@@ -21,7 +30,12 @@ class CustomUserManager(BaseUserManager):  #manages the db queries for user mode
         return user
 
     def create_superuser(self, username, password=None, date_of_birth=None, profile_photo=None):
-        
+        user = self.create_user(
+            username =username,
+            password=password,
+            date_of_birth=date_of_birth,
+            profile_photo=profile_photo
+        )
         user.is_staff=True
         user.is_superuser=True
         user.save(using=self._db)
