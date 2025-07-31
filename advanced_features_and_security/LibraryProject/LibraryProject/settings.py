@@ -155,3 +155,11 @@ CSP_SCRIPT_SRC = ("'self'", 'https://cdnjs.cloudflare.com')
 CSP_STYLE_SRC = ("'self'", 'https://fonts.googleapis.com')
 CSP_FONT_SRC = ("'self'", 'https://fonts.gstatic.com')
 CSP_IMG_SRC = ("'self'", 'data:')
+
+#https security guards
+SECURE_SSL_REDIRECT= True
+SECURE_HSTS_SECONDS = 31536000
+SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+ SECURE_HSTS_PRELOAD = True
+
+ 
