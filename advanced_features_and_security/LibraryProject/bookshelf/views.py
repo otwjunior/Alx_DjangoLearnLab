@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import permission_required, login_required
-from .forms import BookForm
+from .forms import ExampleForm
 from .models import Book
 
 # edit a book
@@ -8,24 +8,24 @@ from .models import Book
 def edit_book(request, book_id):
     book = get_object_or_404(Book, id=book_id)
     if request.method == 'POST':
-        form = BookForm(request.POST, instance=book)
+        form = ExampleForm(request.POST, instance=book)
         if form.is_valid():
             form.save()
             return redirect('book_list')
     else:
-        form = BookForm(instance=book)    
+        form = ExampleForm(instance=book)    
     return render (request, 'bookshelf/book_edit.html', {'form':form})
 
 # add book view   
 @permission_required('bookshelf.can_create', raise_exception=True)
 def add_book(request):
     if request.method == 'POST':
-        form = BookForm(request.POST)
+        form = ExampleForm(request.POST)
         if form.is_valid():
             form.save()
             return redirect('book_list')
     else:
-        form = BookForm()
+        form = ExampleForm()
     
     return render(request, 'bookshelf/add_book.html', {'form':form})
 
