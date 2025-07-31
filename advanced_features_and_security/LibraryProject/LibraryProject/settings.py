@@ -144,7 +144,7 @@ AUTHENTICATION_BACKENDS = [
 """security security"""
 DEBUG = False
 #browser side protection
-SECURE_CONTECT_TYPE_NOSNIFF = True #client cannot guess content
+SECURE_CONTENT_TYPE_NOSNIFF = True #client cannot guess content
 SECURE_BROWSER_XSS_FILTER = True # xss prevention
 X_FRAME_OPTIONS ='DENY' #clickjacking protection
 SESSION_COOKIE_SECURE = True # send cookies over https only
