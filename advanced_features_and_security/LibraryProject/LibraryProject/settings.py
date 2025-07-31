@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'csp'
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -42,6 +43,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'csp.middleware.CSPMiddleware'
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -49,6 +51,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
 ]
 
 ROOT_URLCONF = 'LibraryProject.urls'
@@ -137,3 +140,18 @@ AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend', #default backend for the  admin and other users
     #'accounts.backends.EmailBackend' # our custom backend
 ]
+
+"""security security"""
+DEBUG = False
+#browser side protection
+SECURE_BROWSER_XSS_FILTER = True # xss prevention
+X_FRAME_OPTIONS ='DENY' #clickjacking protection
+SECURE_CONTECT_TYPE_NOSNIFF = True #client cannot guess content
+SESSION_COOKIE_SECURE = True # send cookies over https only
+CSRF_COOKIE_SECURE = True # only send csrf cookie over https
+#block inline,external script a
+CSP_DEFAULT_SRC = ("'self'",)
+CSP_SCRIPT_SRC = ("'self'", 'https://cdnjs.cloudflare.com')
+CSP_STYLE_SRC = ("'self'", 'https://fonts.googleapis.com')
+CSP_FONT_SRC = ("'self'", 'https://fonts.gstatic.com')
+CSP_IMG_SRC = ("'self'", 'data:')
