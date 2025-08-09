@@ -8,13 +8,12 @@ class BookSerializer(serializers.ModelSerializer):
     class Meta:
         model =  Book
         fields = '__all__'
-    
-    #custom validation
-    def Validate_publication_year(seelf, value):
+        #custom validation
+    def validate_publication_year(self, value):
         from datetime import date
         current_year = date.today().year
         if value > current_year:
-            raise serializer.ValidationError('future date are  not logically correct')
+            raise serializers.ValidationError('future date are not logically correct')
         return value
 # custom author serializer
 class AuthorSerializer(serializers.ModelSerializer):
