@@ -5,6 +5,11 @@ from .models import Book, Author
  
 #custom book serializer
 class BookSerializer(serializers.ModelSerializer):
+    author = serializers.SlugRelatedField(
+        slug_field='name',      # use the name field
+        queryset=Author.objects.all()
+    )
+    
     class Meta:
         model =  Book
         fields = '__all__'
